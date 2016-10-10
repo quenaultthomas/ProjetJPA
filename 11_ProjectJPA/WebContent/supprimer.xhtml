@@ -1,0 +1,69 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<title></title>
+</h:head>
+<h:body>
+
+	<h:form>
+		<p:breadCrumb>
+			<p:menuitem value="Accueil" action="affichage" />
+			<p:menuitem value="Ajouter" action="ajouter" />
+			<p:menuitem value="Modifier" action="modifier" />
+			<p:menuitem value="Supprimer" action="#" />
+			<p:menuitem value="Déconnexion" action="deconnexion" />
+		</p:breadCrumb>
+	</h:form>
+	<div align="center">
+		
+
+		<h:form>
+			<h:panelGrid columns="3">
+			
+		Id : 
+		<h:inputText id="idId" value="#{userMB.users.id}" label="Id"
+					required="true" maxlength="20"></h:inputText>
+				<h:message for="idId" style="color:red"></h:message>
+
+				<h:commandButton value="Rechercher" action="#{userMB.rechercher}"></h:commandButton>
+				
+			</h:panelGrid>
+		</h:form>
+		
+		<h:form>
+		<p:dataTable var="users" value="#{userMB.users}">
+			<p:column headerText="Id">
+				<h:outputText value="#{users.id}" />
+			</p:column>
+
+			<p:column headerText="Nom">
+				<h:outputText value="#{users.nom}" />
+			</p:column>
+
+			<p:column headerText="Prenom">
+				<h:outputText value="#{users.prenom}" />
+			</p:column>
+
+			<p:column headerText="Mail">
+				<h:outputText value="#{users.mail}" />
+			</p:column>
+
+			<p:column headerText="Password">
+				<h:outputText value="#{users.password}" />
+			</p:column>
+
+		</p:dataTable>
+		<h:commandButton value="Supprimer" action="#{userMB.supprimer}"></h:commandButton>
+		</h:form>
+ 	</div> 
+
+</h:body>
+
+</html>

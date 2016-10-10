@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<faces-config
+    xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd"
+    version="2.2">
+<navigation-rule>
+<from-view-id>index.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>connexion</from-outcome>
+			<to-view-id>/affichage.xhtml</to-view-id>
+		</navigation-case>
+
+		<navigation-case>
+			<from-outcome>erreur</from-outcome>
+			<to-view-id>/erreur.xhtml</to-view-id>
+		</navigation-case>
+		
+		
+
+</navigation-rule>
+
+<navigation-rule>
+<from-view-id>affichage.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>afficher</from-outcome>
+			<to-view-id>/affichage.xhtml</to-view-id>
+		</navigation-case>
+	
+
+</navigation-rule>
+
+
+<navigation-rule>
+<from-view-id>ajouter.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>afficher</from-outcome>
+			<to-view-id>/affichage.xhtml</to-view-id>
+		</navigation-case>
+	
+
+</navigation-rule>
+
+<navigation-rule>
+<from-view-id>supprimer.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>afficher</from-outcome>
+			<to-view-id>/affichage.xhtml</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>#</from-outcome>
+			<to-view-id>/supprimer.xhtml</to-view-id>
+		</navigation-case>
+	
+
+</navigation-rule>
+
+<navigation-rule>
+<from-view-id>modifier.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>afficher</from-outcome>
+			<to-view-id>/affichage.xhtml</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>#</from-outcome>
+			<to-view-id>/modifier.xhtml</to-view-id>
+		</navigation-case>
+	
+
+</navigation-rule>
+
+<navigation-rule>
+<from-view-id>deconnexion.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>deco</from-outcome>
+			<to-view-id>/index.xhtml</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>nodeco</from-outcome>
+			<to-view-id>/affichage.xhtml</to-view-id>
+		</navigation-case>
+	
+
+</navigation-rule>
+
+</faces-config>

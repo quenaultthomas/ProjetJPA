@@ -1,0 +1,67 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<title></title>
+</h:head>
+<h:body>
+
+	<h:form>
+		<p:breadCrumb>
+			<p:menuitem value="Accueil" action="affichage" />
+			<p:menuitem value="Ajouter" action="#" />
+			<p:menuitem value="Modifier" action="modifier" />
+			<p:menuitem value="Supprimer" action="supprimer" />
+			<p:menuitem value="Déconnexion" action="deconnexion" />
+		</p:breadCrumb>
+	</h:form>
+
+	<div align="center">
+
+
+		<h:form>
+			<h:panelGrid columns="3">
+
+		Nom : 
+		<h:inputText id="nomId" value="#{userMB.users.nom}" label="Nom"
+					required="true"></h:inputText>
+				<h:message for="nomId" style="color:red"></h:message>
+
+				
+		Prenom : 
+		<h:inputText id="ageId" value="#{userMB.users.prenom}" label="Age"
+					required="true" maxlength="20"></h:inputText>
+				<h:message for="ageId" style="color:red"></h:message>
+
+
+
+		Mail : 
+		<h:inputText id="mailId" value="#{userMB.users.mail}" label="Mail"
+					required="true">
+					<f:validator validatorId="validatorMail"></f:validator>
+				</h:inputText>
+				<h:message for="mailId" style="color:red"></h:message>
+
+
+
+			Password : 
+		<h:inputSecret id="passwordId" value="#{userMB.users.password}"
+					label="Password" required="true"></h:inputSecret>
+				<h:message for="passwordId" style="color:red"></h:message>
+
+
+				<h:commandButton value="Ajouter" action="#{userMB.ajouter}"></h:commandButton>
+			</h:panelGrid>
+		</h:form>
+	</div>
+	
+
+</h:body>
+
+</html>
