@@ -25,7 +25,7 @@
 	<br />
 	<br />
 	<h:form>
-		<p:dataTable var="users" value="#{agentMB.userslist}" rows="5"
+		<p:dataTable var="users" value="#{sessionScope.listeUsers}" rows="5"
 			paginator="true"
 			paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
 			rowsPerPageTemplate="5,10,15">

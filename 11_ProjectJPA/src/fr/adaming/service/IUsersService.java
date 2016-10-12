@@ -16,4 +16,6 @@ public interface IUsersService {
 	
 	public Users UsersGetByIdService(int id_us);
 
+	public List<Users> AllUsersGetByIdAgentService(int id_agent);
+
 }

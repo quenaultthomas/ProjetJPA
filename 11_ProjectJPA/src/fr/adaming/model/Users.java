@@ -5,12 +5,12 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
-import fr.adaming.service.IUsersService;
-import fr.adaming.service.UsersServiceImpl;
 
 
 @Entity
@@ -18,6 +18,7 @@ import fr.adaming.service.UsersServiceImpl;
 
 @NamedQueries({
 	@NamedQuery(name="getAllUsers", query="SELECT u FROM Users as u"),
+	@NamedQuery(name="getAllUsersByIdAgent", query="SELECT u FROM Users as u WHERE u.agent.id_agent =:id"),
 	})
 public class Users {
 	@Id
@@ -32,6 +33,10 @@ public class Users {
 	private String mail;
 	@Column(name = "mdp")
 	private String password;
+	
+	@OneToOne
+	@JoinColumn(name="agent_id", referencedColumnName="id_agent")
+	private Agent agent;
 	
 
 	/**
@@ -151,6 +156,22 @@ public class Users {
 	 */
 	public void setPassword(String password) {
 		this.password = password;
+	}
+
+
+	/**
+	 * @return the agent
+	 */
+	public Agent getAgent() {
+		return agent;
+	}
+
+
+	/**
+	 * @param agent the agent to set
+	 */
+	public void setAgent(Agent agent) {
+		this.agent = agent;
 	}
 
 

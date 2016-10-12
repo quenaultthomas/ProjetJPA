@@ -2,8 +2,7 @@ package fr.adaming.service;
 
 import java.util.List;
 
-import fr.adaming.dao.AgentDaoImpl;
-import fr.adaming.dao.IAgentDao;
+
 import fr.adaming.dao.IUsersDao;
 import fr.adaming.dao.UsersDaoImpl;
 import fr.adaming.model.Users;
@@ -35,6 +34,12 @@ public class UsersServiceImpl implements IUsersService {
 	@Override
 	public Users UsersGetByIdService(int id_us) {
 		return usersDao.UsersGetByIdDAO(id_us);
+	}
+	
+	@Override
+	public List<Users> AllUsersGetByIdAgentService(int id_agent) {
+		
+		return usersDao.AllUsersGetByIdAgentDao(id_agent);
 	}
 
 }

@@ -7,7 +7,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
+
+
 
 
 @Entity
@@ -24,6 +27,9 @@ public class Agent {
 	private String mail;
 	@Column(name = "password")
 	private String mdp;
+	
+	@OneToOne(mappedBy="agent")
+	private Users users;
 	
 	/**
 	 * Empty Constructor
@@ -102,6 +108,20 @@ public class Agent {
 	 */
 	public void setMdp(String mdp) {
 		this.mdp = mdp;
+	}
+
+	/**
+	 * @return the users
+	 */
+	public Users getUsers() {
+		return users;
+	}
+
+	/**
+	 * @param users the users to set
+	 */
+	public void setUsers(Users users) {
+		this.users = users;
 	}
 
 	/**

@@ -20,7 +20,7 @@
 		Login : 
 		<h:inputText id="mailId" value="#{agentMB.mail}" label="Mail"
 					required="true">
-					<f:validator validatorId="validatorMail"></f:validator>
+					
 				</h:inputText>
 				<h:message for="mailId" style="color:red"></h:message>
 
@@ -29,7 +29,6 @@
 		<h:inputSecret id="passwordId" value="#{agentMB.password}" label="Password"
 					required="true"></h:inputSecret>
 				<h:message for="passwordId" style="color:red"></h:message>
-
 				<h:commandButton value="connexion" action="#{agentMB.connexion}"></h:commandButton>
 			</h:panelGrid>
 		</h:form>

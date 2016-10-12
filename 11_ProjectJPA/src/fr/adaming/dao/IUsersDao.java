@@ -14,7 +14,9 @@ public interface IUsersDao {
 	
 	public List<Users> getAllUserDAO();
 	
-	public Users UsersGetByIdDAO(int id_us);
+	public Users UsersGetByIdDAO(int id_us);	
+
+	public List<Users> AllUsersGetByIdAgentDao(int id_agent);
 	
 	
 

@@ -24,10 +24,11 @@ public class UsersDaoImpl implements IUsersDao {
 				EntityTransaction tx = em.getTransaction();
 				tx.begin();
 				
-				Users newUser = new Users(us.getNom(), us.getPrenom(), us.getMail(), us.getPassword());
+				//Users newUser = new Users(us.getNom(), us.getPrenom(), us.getMail(), us.getPassword());
+				//em.persist(newUser);
 				
-				em.persist(newUser);
-
+				em.persist(us);
+				
 				tx.commit();
 				em.close();
 				emf.close();
@@ -46,7 +47,8 @@ public class UsersDaoImpl implements IUsersDao {
 		mergeUser.setNom(us.getNom());
 		mergeUser.setPrenom(us.getPrenom());
 		mergeUser.setMail(us.getMail());
-		mergeUser.setPassword(us.getPassword());	
+		mergeUser.setPassword(us.getPassword());
+		
 	
 		em.merge(mergeUser);
 
@@ -97,6 +99,22 @@ public class UsersDaoImpl implements IUsersDao {
 		
 		Users searchUser = em.find(Users.class, id_us);
 		return searchUser;
+	}
+
+	@Override
+	public List<Users> AllUsersGetByIdAgentDao(int id_agent) {
+		EntityManagerFactory emf = Persistence.createEntityManagerFactory("PU");
+		EntityManager em = emf.createEntityManager();
+		
+		Query queryUsersByIdAgent = em.createNamedQuery("getAllUsersByIdAgent");
+		queryUsersByIdAgent.setParameter("id",id_agent);
+	
+		
+		@SuppressWarnings("unchecked")
+		List<Users> listeUsersByIdAgent = queryUsersByIdAgent.getResultList();
+		System.out.println("UsersDAOImpl  111" + listeUsersByIdAgent);
+		System.out.println("UsersDAOImpl  111" + listeUsersByIdAgent.size());
+		return listeUsersByIdAgent;
 	}
 		
 }
